@@ -12,6 +12,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  * npm run build
  * firebase init
  * firebase deploy
+    - faced error due to outdated npm version so I have used
+       1. Remove-Item -Recurse -Force node_modules
+       2. npm install --loglevel=error
+
 
 # Usage
 
