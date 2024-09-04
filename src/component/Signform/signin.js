@@ -1,5 +1,7 @@
 import './index.css';
 import { useFormik } from 'formik';
+import { auth } from '../../utils/firebase';
+import { createUserWithEmailAndPassword } from '../../utils/firebase';
 
 const initialValues={
     email:'',
@@ -7,7 +9,15 @@ const initialValues={
 }
 
 const onSubmit=values=>{
-    console.log(values)
+    createUserWithEmailAndPassword(auth,values.email,values.password)
+    .then((userCredential)=>{
+        const user=userCredential.user;
+        console.log('Succelly SignedIn',user);
+    }).catch((error)=>{
+         const errorCode=error.code;
+         const errorMessage=error.Message;
+         console.log("Errorcode",errorCode,"ErrorMessage",errorMessage)
+    });
 }
 
 const validate=values=>{
@@ -40,11 +50,13 @@ const SignIn=()=>{
         <div className='SignIn_page'>
         <form onSubmit={formik.handleSubmit}>
             <h1>SIGN UP</h1>
-            <label>Email</label>
+            <label htmlFor='email'>Email</label>
             <div className='form-control'>
-                <input 
+                <input
+                id='email' 
                 type="email"
                 name='email'
+                autoComplete='email'
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -52,11 +64,13 @@ const SignIn=()=>{
                 {formik.touched.email && formik.errors.email ? <div className='Error'>{formik.errors.email}</div>:null}
             </div>
 
-            <label>Password</label>
+            <label htmlFor='password'>Password</label>
             <div className='form-control'>
                 <input
+                id='password'
                 type="password" 
                 name='password'
+                autoComplete='"new-password"'
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
