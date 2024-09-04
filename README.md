@@ -15,7 +15,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - faced error due to outdated npm version so I have used
        1. Remove-Item -Recurse -Force node_modules
        2. npm install --loglevel=error
-
+ * npm install formik --save
 
 # Usage
 

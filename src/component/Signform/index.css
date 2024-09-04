@@ -1,0 +1,30 @@
+
+.SignIn_page{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.SignIn_page form{
+    width: 40vw;
+    height: 50vh;
+    border: 5px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+}
+.SignIn_page form label,.SignIn_page form input{
+    width: 30vw;
+    height: 5vh;
+}
+.SignIn_page button{
+    width: fit-content;
+    padding: 10px;
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 15px;
+}
