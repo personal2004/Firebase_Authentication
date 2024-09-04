@@ -28,3 +28,7 @@
     background-color: dodgerblue;
     border-radius: 15px;
 }
+.Error{
+    color: red;
+    font-size:13px;
+}
