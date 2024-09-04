@@ -46,9 +46,10 @@ const SignIn=()=>{
                 type="email"
                 name='email'
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.email}
                 />
-                {formik.errors.email ? <div className='Error'>{formik.errors.email}</div>:null}
+                {formik.touched.email && formik.errors.email ? <div className='Error'>{formik.errors.email}</div>:null}
             </div>
 
             <label>Password</label>
@@ -57,9 +58,10 @@ const SignIn=()=>{
                 type="password" 
                 name='password'
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.password}
                 />
-                {formik.errors.password?<div className='Error'>{formik.errors.password}</div>:null}
+                {formik.touched.password && formik.errors.password?<div className='Error'>{formik.errors.password}</div>:null}
             </div>
 
             <button type='submit'>Submit</button>
