@@ -6,12 +6,14 @@ const SignIn=()=>{
         initialValues:{
             email:'',
             password:'',
+        },
+        onSubmit:values=>{
+            console.log(formik.values)
         }
     });
-    console.log(formik.values)
     return(
         <div className='SignIn_page'>
-        <form>
+        <form onSubmit={formik.handleSubmit}>
             <h1>SIGN UP</h1>
             <label>Email</label>
             <input 
@@ -27,7 +29,7 @@ const SignIn=()=>{
              onChange={formik.handleChange}
              value={formik.values.password}
              />
-            <button>Submit</button>
+            <button type='submit'>Submit</button>
         </form>
         </div>
     )
